@@ -1,6 +1,8 @@
 <h2>Lista de Aerolíneas</h2>
-<div class="aerolinea-card" *ngFor="let aerolinea of aerolineas" (click)="onSelected(aerolinea)" [style.background]="aerolinea.identityColor" [routerLink]="['/aerolinea', aerolinea.id]" style="cursor:pointer;">
-  <h3>{{ aerolinea.airlineName }}</h3>
+<div class="lista-horizontal">
+  <div class="aerolinea-card" *ngFor="let aerolinea of aerolineas" (click)="onSelected(aerolinea)" [style.background]="aerolinea.identityColor" [routerLink]="['/aerolinea', aerolinea.id]" style="cursor:pointer;">
+    <h3>{{ aerolinea.airlineName }}</h3>
+  </div>
 </div>
 
 <div *ngIf="selected" class="detalle-flex">
@@ -17,6 +19,7 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let vuelo of selectedAerolinea.flights">
         <strong>{{ vuelo.departureCity }}</strong> ({{ vuelo.departureAirport }})
+        <strong> -> </strong>
         <strong>{{ vuelo.arrivalCity }}</strong> ({{ vuelo.arrivalAirport }})<br>
         <small>Salida: {{ vuelo.departureTime }} | Duración: {{ vuelo.flightDuration }}h</small>
       </li>
