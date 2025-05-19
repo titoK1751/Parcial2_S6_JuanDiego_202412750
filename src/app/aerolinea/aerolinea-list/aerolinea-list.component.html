@@ -1,0 +1,11 @@
+<h2>Lista de Aerolíneas</h2>
+<div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+  <div class="aerolinea-card" *ngFor="let aerolinea of aerolineas" [style.background]="aerolinea.identityColor ">
+    <h3>{{ aerolinea.airlineName }}</h3>
+  </div>
+  <div *ngIf="selected">
+  <h3>Detalle de la Aerolínea</h3>
+  <p><strong>Nombre:</strong> {{ selectedAerolinea.airlineName }}</p>
+  <p><strong>País:</strong> {{ selectedAerolinea.country }}</p>
+</div>
+</div>
